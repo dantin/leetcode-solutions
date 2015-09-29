@@ -13,25 +13,26 @@ Output: index1=1, index2=2
 
 
 class Solution(object):
-    def twoSum(self, nums, target):
+
+    @classmethod
+    def two_sum(cls, _nums, _target):
         """
-        :type nums: List[int]
-        :type target: int
+        :type _nums: List[int]
+        :type _target: int
         :rtype: List[int]
         """
         cache = dict()
-        for i in range(0, len(nums)):
-            if (nums[i] in cache.keys()) and (i != cache[nums[i]]):
-                return cache[nums[i]] + 1, i + 1
-            cache[target - nums[i]] = i
+        for i in range(0, len(_nums)):
+            if (_nums[i] in cache.keys()) and (i != cache[_nums[i]]):
+                return cache[_nums[i]] + 1, i + 1
+            cache[_target - _nums[i]] = i
         return None
 
 
 if __name__ == '__main__':
     nums = [0, 4, 3, 0]
     target = 0
-    s = Solution()
-    r = s.twoSum(nums, target)
+    r = Solution.two_sum(nums, target)
     if r:
         print 'index1=%d, index2=%d' % r
     else:
