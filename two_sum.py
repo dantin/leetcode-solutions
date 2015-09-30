@@ -34,6 +34,6 @@ if __name__ == '__main__':
     target = 0
     r = Solution.two_sum(nums, target)
     if r:
-        print 'index1=%d, index2=%d' % r
+        print('index1=%d, index2=%d' % r)
     else:
-        print 'Not found!'
+        print('Not found!')
