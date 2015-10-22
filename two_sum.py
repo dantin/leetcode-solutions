@@ -22,10 +22,10 @@ class Solution(object):
         :rtype: List[int]
         """
         cache = dict()
-        for i in range(0, len(_nums)):
-            if (_nums[i] in cache.keys()) and (i != cache[_nums[i]]):
-                return cache[_nums[i]] + 1, i + 1
-            cache[_target - _nums[i]] = i
+        for i, num in enumerate(_nums):
+            if (num in cache.keys()) and (i != cache[num]):
+                return cache[num] + 1, i + 1
+            cache[_target - num] = i
         return None
 
 
