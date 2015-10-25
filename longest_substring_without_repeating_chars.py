@@ -21,8 +21,7 @@ class Solution(object):
                 while slow <= hash_table[ord(c)]:
                     hash_table[ord(s[slow])] = -1
                     slow += 1
-            if fast - slow + 1 > max_len:
-                max_len = fast - slow + 1
+            max_len = max(fast - slow + 1, max_len)
             hash_table[ord(c)] = fast
         return max_len
 
