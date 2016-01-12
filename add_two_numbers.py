@@ -28,6 +28,7 @@ class Solution(object):
         while l1 and l2:
             s = l1.val + l2.val + s
             node = ListNode(s % 10)
+            # 注意头指针的处理方式
             if not tail:
                 __result = node
             else:
