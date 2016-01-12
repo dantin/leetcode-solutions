@@ -20,6 +20,9 @@ class Solution(object):
         :type _target: int
         :rtype: List[int]
         """
+        # 这里的重点是构造一个缓存:
+        #    [差]=下标
+        # 后面的判断可以利用这个缓存
         cache = dict()
         for i, num in enumerate(_nums):
             if (num in cache.keys()) and (i != cache[num]):
