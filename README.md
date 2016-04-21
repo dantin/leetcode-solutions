@@ -1,2 +1,9 @@
-# leetcode-solutions
-Solutions for leetcode
+# LeetCode OJ Solutions
+
+Solutions for LeetCode.
+
+### Module
+
+* leetcode-java
+* leetcode-python
+
