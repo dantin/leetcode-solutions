@@ -1,9 +1,10 @@
-# LeetCode OJ Solutions
+# LeetCode AC Solutions
 
 Solutions for LeetCode.
 
-### Module
+### Language
 
-* leetcode-java
-* leetcode-python
+* java
+* golang
+* python
 
