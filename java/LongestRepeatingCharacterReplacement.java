@@ -2,13 +2,13 @@ public class LongestRepeatingCharacterReplacement {
     public int characterReplacement(String s, int k) {
         int ans = 0, max = 0, slow = 0;
         int[] counts = new int[128];
-        for (int i = 0; i < s.length(); i++) {
-            max = Math.max(max, ++counts[s.charAt(i)]);
-            while (i - slow + 1 - max > k) {
+        for (int fast = 0; fast < s.length(); fast++) {
+            max = Math.max(max, ++counts[s.charAt(fast)]);
+            while (fast - slow + 1 - max > k) {
                 counts[s.charAt(slow)]--;
                 slow++;
             }
-            ans = Math.max(ans, i - slow + 1);
+            ans = Math.max(ans, fast - slow + 1);
         }
         return ans;
     }
