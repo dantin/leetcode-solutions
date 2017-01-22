@@ -5,6 +5,22 @@ public class LexicographicalNumbers {
 
     public List<Integer> lexicalOrder(int n) {
         List<Integer> ans = new LinkedList<>();
+        int cur = 1;
+        for (int i = 0; i < n; i++) {
+            ans.add(cur);
+            if (cur * 10 <= n) {
+                cur *= 10;
+            } else {
+                if (cur >= n) cur /= 10;
+                cur += 1;
+                while (cur % 10 == 0) cur /= 10;
+            }
+        }
+        return ans;
+    }
+
+    public List<Integer> lexicalOrder1(int n) {
+        List<Integer> ans = new LinkedList<>();
         for (int i = 1; i < 10; i++) {
             lexial(i, n, ans);
         }
