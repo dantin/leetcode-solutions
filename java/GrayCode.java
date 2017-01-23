@@ -4,6 +4,16 @@ import java.util.LinkedList;
 public class GrayCode {
 
     public List<Integer> grayCode(int n) {
+        List<Integer> ans = new LinkedList<>();
+
+        for (int i = 0; i < (1 << n); i++) {
+            ans.add((i >> 1) ^ i);
+        }
+        
+        return ans;
+    }
+
+    public List<Integer> grayCode1(int n) {
         List<Integer> ans = null;
         if (n == 0) {
             ans = new LinkedList<>();
