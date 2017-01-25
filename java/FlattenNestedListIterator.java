@@ -2,7 +2,7 @@ import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
+import java.util.Queue;
 
 public class FlattenNestedListIterator {
 
@@ -13,9 +13,39 @@ public class FlattenNestedListIterator {
 
 class NestedIterator implements Iterator<Integer> {
 
-    private Deque<NestedInteger> stack;
+    private Queue<Integer> queue;
 
     public NestedIterator(List<NestedInteger> nestedList) {
+        queue = new LinkedList<>();
+        toQueue(nestedList);
+    }
+
+    private void toQueue(List<NestedInteger> nestedList) {
+        for (NestedInteger item : nestedList) {
+            if (item.isInteger()) {
+                queue.add(item.getInteger());
+            } else {
+                toQueue(item.getList());
+            }
+        }
+    }
+
+    @Override
+    public Integer next() {
+        return queue.poll();
+    }
+
+    @Override
+    public boolean hasNext() {
+        return !queue.isEmpty();
+    }
+}
+
+class NestedIterator1 implements Iterator<Integer> {
+
+    private Deque<NestedInteger> stack;
+
+    public NestedIterator1(List<NestedInteger> nestedList) {
         stack = new LinkedList<>();
         for (int i = nestedList.size() - 1; i >= 0; i--) {
             stack.push(nestedList.get(i));
