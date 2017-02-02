@@ -3,6 +3,18 @@ import java.util.Arrays;
 public class IncreasingTripletSubsequence {
 
     public boolean increasingTriplet(int[] nums) {
+        int min1 = Integer.MAX_VALUE, min2 = Integer.MAX_VALUE;
+
+        for (int x : nums) {
+            if (min1 >= x) min1 = x;
+            else if (min2 >= x) min2 = x;
+            else return true;
+        }
+
+        return false;
+    }
+
+    public boolean increasingTriplet1(int[] nums) {
         if (nums == null || nums.length == 0) return false;
         int[] dp = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
