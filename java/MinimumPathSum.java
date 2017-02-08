@@ -13,7 +13,7 @@ public class MinimumPathSum {
             dp[0][j] = dp[0][j - 1] + grid[0][j];
         for (int i = 1; i < row; i++) {
             for (int j = 1; j < col; j++) {
-                dp[i][j] = (dp[i - 1][j] < dp[i][j - 1] ? dp[i - 1][j] : dp[i][j - 1]) + grid[i][j];
+                dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
             }
         }
         return dp[row - 1][col - 1];
