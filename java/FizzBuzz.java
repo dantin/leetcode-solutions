@@ -5,18 +5,19 @@ public class FizzBuzz {
 
     public List<String> fizzBuzz(int n) {
         List<String> list = new LinkedList<>();
+        StringBuilder buffer = new StringBuilder();
         for (int i = 1; i <= n; i++) {
-            StringBuilder sb = new StringBuilder();
+            buffer.setLength(0);
             if (i % 3 == 0) {
-                sb.append("Fizz");
+                buffer.append("Fizz");
             }
             if (i % 5 == 0) {
-                sb.append("Buzz");
+                buffer.append("Buzz");
             }
             if (i % 3 != 0 && i % 5 != 0) {
-                sb.append(i);
+                buffer.append(i);
             }
-            list.add(sb.toString());
+            list.add(buffer.toString());
         }
         return list;
     }
