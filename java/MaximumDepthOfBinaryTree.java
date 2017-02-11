@@ -5,15 +5,25 @@ public class MaximumDepthOfBinaryTree {
 
     public int maxDepth(TreeNode root) {
         int depth = 0;
-        Queue<Element> queue = new LinkedList<>();
-        queue.add(new Element(root, depth));
+        if (root == null) return depth;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+        depth = 1;
 
-        while(queue.size() > 0) {
-            Element e = queue.poll();
-            if(e.level > depth)
-                depth = e.level;
-            if(e.node.left != null) queue.add(new Element(e.node.left, e.level + 1));
-            if(e.node.right != null) queue.add(new Element(e.node.right, e.level + 1));
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node == null) {
+                if (queue.isEmpty()) {
+                    break;
+                } else {
+                    depth++;
+                    queue.add(null);
+                }
+            } else {
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+            }
         }
         return depth;
     }
@@ -39,13 +49,3 @@ class TreeNode {
     TreeNode right;
     TreeNode(int x) { val = x; }
 }
-
-class Element {
-    TreeNode node;
-    int level;
-
-    Element(TreeNode e, int level) {
-        this.node = e;
-        this.level = level;
-    }
-} 
