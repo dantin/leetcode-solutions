@@ -8,6 +8,29 @@ public class Subsets {
 
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> ans = new LinkedList<>();
+        int max = 1;
+        for (int i = 0; i < nums.length; i++) {
+            max <<= 1;
+        }
+        for (int i = 0; i < max; i++) {
+            ans.add(num2set(nums, i));
+        }
+        return ans;
+    }
+
+    private List<Integer> num2set(int[] nums, int num) {
+        List<Integer> set = new ArrayList<>();
+        int i = 0;
+        while (num > 0) {
+            if ((num & 1) == 1) set.add(nums[i]);
+            num >>>= 1;
+            i++;
+        }
+        return set;
+    }
+
+    public List<List<Integer>> subsets2(int[] nums) {
+        List<List<Integer>> ans = new LinkedList<>();
         if (nums == null || nums.length == 0) return ans;
 
         ans.add(new ArrayList<Integer>());
