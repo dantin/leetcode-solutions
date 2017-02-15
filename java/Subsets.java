@@ -10,7 +10,23 @@ public class Subsets {
         List<List<Integer>> ans = new LinkedList<>();
         if (nums == null || nums.length == 0) return ans;
 
-        Arrays.sort(nums);
+        ans.add(new ArrayList<Integer>());
+        for (int i = 0; i < nums.length; i++) {
+            int n = ans.size();
+            for (int j = 0; j < n; j++) {
+                List<Integer> subset = new ArrayList<Integer>(ans.get(j));
+                subset.add(nums[i]);
+                ans.add(new ArrayList<Integer>(subset));
+            }
+        }
+
+        return ans;
+    }
+
+    public List<List<Integer>> subsets1(int[] nums) {
+        List<List<Integer>> ans = new LinkedList<>();
+        if (nums == null || nums.length == 0) return ans;
+
         List<Integer> path = new ArrayList<>();
         dfs(nums, 0, path, ans);
 
