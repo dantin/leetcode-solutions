@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func hammingDistance(x int, y int) int {
-	var d int
+	d := 0
 	xor := x ^ y
 	for xor != 0 {
 		d += xor & 1
