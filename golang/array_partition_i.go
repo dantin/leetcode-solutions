@@ -8,9 +8,9 @@ import (
 func arrayPairSum(nums []int) int {
 	sort.Ints(nums)
 	sum := 0
-	for i := 0; i < len(nums); i++ {
+	for i, v := range nums {
 		if i%2 == 0 {
-			sum += nums[i]
+			sum += v
 		}
 	}
 
