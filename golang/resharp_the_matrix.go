@@ -3,30 +3,21 @@ package main
 import "fmt"
 
 func matrixReshape(nums [][]int, r int, c int) [][]int {
-    re := 0
-    res := make([][]int, r)
-    for i := 0; i < r; i++ {
-        res[i] = make([]int, c)
-        re += c
+    m, n := len(nums), len(nums[0])
+    if m * n != r * c {
+        return nums
     }
 
-    idx := 0
-    for i := 0; i < len(nums); i++ {
-        for j:= 0; j < len(nums[i]); j++ {
-            if idx < re {
-                res[idx/c][idx % c] = nums[i][j]
-            } else {
-                return nums
-            }
-            idx++
+    reshape := make([][]int, r)
+    for i := 0; i < r; i++ {
+        reshape[i] = make([]int, c)
+        for j := 0; j < c; j++ {
+            k := i * c + j
+            reshape[i][j] = nums[k/n][k%n]
         }
     }
 
-    if idx != re {
-        return nums
-    } else {
-        return res
-    }
+    return reshape
 }
 
 func makeMatrix(row int, column int) [][]int {
@@ -47,5 +38,5 @@ func makeMatrix(row int, column int) [][]int {
 func main() {
     nums := makeMatrix(2, 2)
     fmt.Println(nums)
-    fmt.Println(matrixReshape(nums, 2, 4))
+    fmt.Println(matrixReshape(nums, 1, 4))
 }
