@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func findComplement(num int) int {
-    mask := ^0
-    for (mask & num) > 0 {
-        mask <<= 1
-    }
-    return ^mask & ^num
+	mask := ^0
+	for (mask & num) > 0 {
+		mask <<= 1
+	}
+	return ^mask & ^num
 }
 
 // func findComplement1(num int) int {
@@ -19,9 +19,9 @@ func findComplement(num int) int {
 // }
 
 func main() {
-    var n int
+	var n int
 
-    fmt.Scan(&n)
+	fmt.Scan(&n)
 
-    fmt.Println(findComplement(n))
+	fmt.Println(findComplement(n))
 }
