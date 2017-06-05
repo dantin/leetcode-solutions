@@ -8,11 +8,10 @@ func distributeCandies(candies []int) int {
 		set[v] = true
 	}
 
-	if len(set) >= len(candies)/2 {
-		return len(candies) / 2
-	} else {
-		return len(set)
-	}
+	if len(set) < len(candies)/2 {
+        return len(set)
+    }
+    return len(candies) / 2
 }
 
 func main() {
