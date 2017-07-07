@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -15,9 +14,4 @@ func arrayPairSum(nums []int) int {
 	}
 
 	return sum
-}
-
-func main() {
-	nums := []int{1, 4, 3, 2}
-	fmt.Println(arrayPairSum(nums))
 }
