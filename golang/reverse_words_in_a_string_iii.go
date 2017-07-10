@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func reverseWords(s string) string {
 	buf := []rune(s)
 
@@ -23,10 +21,4 @@ func reverse(s []rune, i int, j int) {
 	for ; i < j; i, j = i+1, j-1 {
 		s[i], s[j] = s[j], s[i]
 	}
-}
-
-func main() {
-	input := "Let's take LeetCode contest"
-	fmt.Println(input)
-	fmt.Println(reverseWords(input))
 }

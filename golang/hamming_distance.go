@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func hammingDistance(x int, y int) int {
 	d := 0
 	xor := x ^ y
@@ -10,11 +8,4 @@ func hammingDistance(x int, y int) int {
 		xor /= 2
 	}
 	return d
-}
-
-func main() {
-	var x, y = 1, 4
-
-	fmt.Printf("Input: x = %d, y = %d\n", x, y)
-	fmt.Printf("Output: %d\n", hammingDistance(x, y))
 }

@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func findComplement(num int) int {
 	mask := ^0
 	for (mask & num) > 0 {
@@ -17,11 +15,3 @@ func findComplement(num int) int {
 //     }
 //     return upper - num - 1
 // }
-
-func main() {
-	var n int
-
-	fmt.Scan(&n)
-
-	fmt.Println(findComplement(n))
-}

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"unicode"
 )
 
@@ -36,11 +35,4 @@ func findWords(words []string) []string {
 	}
 
 	return res
-}
-
-func main() {
-	words := []string{"Hello", "Alaska", "Dad", "Peace"}
-
-	fmt.Println(words)
-	fmt.Println(findWords(words))
 }
