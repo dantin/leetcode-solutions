@@ -1,11 +1,14 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestFindWord(t *testing.T) {
 	words := []string{"Hello", "Alaska", "Dad", "Peace"}
 
-	if len(findWords(words)) != 2 {
+	if !reflect.DeepEqual([]string{"Alaska", "Dad"}, findWords(words)) {
 		t.Error("keyboard row test failed")
 	}
 }
